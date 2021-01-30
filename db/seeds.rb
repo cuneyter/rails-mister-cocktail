@@ -8,9 +8,9 @@
 require 'json'
 require 'open-uri'
 
-puts 'Cleaning up database'
+puts 'Cleaning up ingredients database'
 Ingredient.destroy_all
-puts 'Database is clean'
+puts 'Ingredients database is clean'
 
 url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 ingredients_serialized = open(url).read
@@ -20,7 +20,22 @@ ingredients['drinks'].each do |ingredient|
   ingredient = Ingredient.create(
     name: ingredient['strIngredient1']
   )
-  puts "ingredient #{ingredient.name} is created"
+  puts "Ingredient #{ingredient.name} is created"
 end
 
-puts 'Done!!!'
+puts 'Ingredients database Done!!!'
+
+puts 'Cleaning up cocktails database'
+Cocktail.destroy_all
+puts 'Cocktails database is clean'
+
+cocktail_names = ['Daiquiri', 'Piña Colada', 'Mai Tai', 'Caipirinha', 'Old Fashioned', 'Manhattan', 'Margarita', 'Cosmopolitan', 'Mojito', 'Martini']
+
+cocktail_names.each do |cocktail|
+  cocktail = Cocktail.create(
+    name: cocktail
+  )
+  puts "Cocktail #{cocktail.name} is created"
+end
+
+puts 'Cocktails database Done!!!'
