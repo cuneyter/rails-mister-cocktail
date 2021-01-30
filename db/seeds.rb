@@ -12,15 +12,15 @@ puts 'Cleaning up database'
 Ingredient.destroy_all
 puts 'Database is clean'
 
-10.times do
-  ingredient = Restaurant.create(
-    name: Faker::Restaurant.name,
-    address: Faker::Address.street_address,
-    phone_number: Faker::PhoneNumber.cell_phone_in_e164,
-    category: ["chinese", "italian", "japanese", "french", "belgian"].sample
+url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+ingredients_serialized = open(url).read
+ingredients = JSON.parse(ingredients_serialized)
+
+ingredients['drinks'].each do |ingredient|
+  ingredient = Ingredient.create(
+    name: ingredient['strIngredient1']
   )
-  puts "restaurant #{restaurant.id} is created"
+  puts "ingredient #{ingredient.name} is created"
 end
 
 puts 'Done!!!'
-
