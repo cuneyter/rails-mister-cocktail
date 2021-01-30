@@ -8,6 +8,8 @@
 require 'json'
 require 'open-uri'
 
+Dose.destroy_all
+
 puts 'Cleaning up ingredients database'
 Ingredient.destroy_all
 puts 'Ingredients database is clean'
@@ -24,6 +26,7 @@ ingredients['drinks'].each do |ingredient|
 end
 
 puts 'Ingredients database Done!!!'
+
 
 puts 'Cleaning up cocktails database'
 Cocktail.destroy_all
