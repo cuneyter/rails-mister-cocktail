@@ -14,3 +14,22 @@
 <%= link_to 'Back', cocktails_path, class: "btn btn-primary" %>
 <%= link_to 'Add a dose and ingredient',  new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
 
+<hr>
+
+<h1>Add a review</h1>
+
+<%= simple_form_for [ @cocktail, @review ] do |f| %>
+  <%= f.input :content %>
+  <%= f.input :rating, collection: (1..5)%>
+  <%= f.submit "Submit review", class: "btn btn-primary" %>
+<% end %>
+
+<hr>
+
+<h3>Reviews</h3>
+
+<ul class="list-group">
+  <% @cocktail.reviews.each do |review| %>
+    <li class="list-group-item"><strong>Rating:</strong>  <%= review.rating %> -- <strong>Comments:</strong> <%= review.content %></li>
+  <% end %>
+</ul>
