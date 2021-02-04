@@ -9,18 +9,9 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import 'bootstrap';
 
+import { navbarGrey } from "../src/navbar";
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-
-document.addEventListener('turbolinks:load', () => {
-  const nav = document.querySelector('nav');
-
-  window.addEventListener('scroll', function () {
-    if (window.pageYOffset > 100) {
-      nav.classList.add('bg-dark', 'shadow');
-    } else {
-      nav.classList.remove('bg-dark', 'shadow');
-    }
-  });
-})
+navbarGrey();
