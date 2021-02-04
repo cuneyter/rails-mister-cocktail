@@ -16,7 +16,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <div class="mx-auto"></div>
       <ul class="navbar-nav">
-        <li class="nav-item mx-2">
+        <li class="nav-item me-3">
           <form action="#" class="navbar-form" role="search">
           <div class="input-group">
               <input type="text" class="form-control" placeholder="Search Cocktails" name="search" id="search">
@@ -59,15 +59,3 @@
 </div>
 
 <%# Enf of Coctail Cards %>
-
-<hr>
-
-<h1>All cocktails</h1>
-
-<ul>
-  <% @cocktails.each do |cocktail| %>
-    <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
-  <% end %>
-</ul>
-
-<%= link_to 'Add a new Cocktail', new_cocktail_path, class: "btn btn-primary" %>
