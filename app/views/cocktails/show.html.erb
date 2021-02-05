@@ -1,6 +1,79 @@
+<%# Start of Body style %>
+<body style= "
+  background: -webkit-linear-gradient(180deg, #19a6c3, #1de790);
+  background: -moz-linear-gradient(180deg, #19a6c3, #1de790);
+  background: -ms-linear-gradient(180deg, #19a6c3, #1de790);
+  background: -o-linear-gradient(180deg, #19a6c3, #1de790);
+  background: linear-gradient(180deg, #19a6c3, #1de790);
+  background-repeat:repeat-x;
+">
+</body>
+<%# End of body style %>
+
+<%# Start of Navbar %>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
+  <div class="container">
+    <a class="navbar-brand" href="/cocktails">The Cocktail House</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="mx-auto"></div>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/cocktails/new">Create your Cocktail!</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<%# End of Navbar %>
+
+
+<div class="container">
+    <div class="row h-100">
+        <div class="col-sm-12 my-auto">
+            <div class="card card-block w-75 mx-auto">
+            <div class="card-body">
+                <h2 class="mb-5 text-white"><%= @cocktail.name %></h2>
+                <div class="row">
+                  <div class="col-md-4">
+                    <p><%= cl_image_tag @cocktail.photo.key, height: 400, width: 300, crop: :fit, class: "rounded-3" %></p>
+                  </div>
+                  <div class="col-md-8">
+                  <h3 class="mb-3">Ingredients</h3>
+                    <ul class="list-group">
+                    <% @cocktail.doses.each do |dose| %>
+                      <li class="list-group-item"><%= dose.ingredient.name %> - <%= dose.description %>
+                      <%= link_to dose_path(dose), method: :delete, data: { confirm: "Are you sure you want to delete #{dose.description}?" } do %>
+                          <i class="bi bi-trash" aria-hidden="true"></i>
+                      <% end %>
+                      </li>
+                    <% end %>
+                  </ul>
+                  <%= link_to 'Add Ingredient',  new_cocktail_dose_path(@cocktail), class: "btn btn-danger" %>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 <h1>My cocktail</h1>
 
-<%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+<%= cl_image_tag @cocktail.photo.key, height: 400, width: 300, crop: :scale %>
 
 <h2><%= @cocktail.name %></h2>
 
