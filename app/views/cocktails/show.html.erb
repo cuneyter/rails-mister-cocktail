@@ -1,5 +1,5 @@
 <%# Start of Body style %>
-<%# <body style= "
+<body style= "
   background: -webkit-linear-gradient(180deg, #19a6c3, #1de790);
   background: -moz-linear-gradient(180deg, #19a6c3, #1de790);
   background: -ms-linear-gradient(180deg, #19a6c3, #1de790);
@@ -7,8 +7,8 @@
   background: linear-gradient(180deg, #19a6c3, #1de790);
   background-repeat: repeat-x;
 ">
-</body> %>
-<%# End of body style %>
+</body>
+<%# End of body style
 
 <%# Start of Navbar %>
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
@@ -45,7 +45,7 @@
             <div class="card-body">
 
                 <%# Cocktail Name %>
-                <h2 class="mb-5"><%= @cocktail.name %></h2>
+                <h2 class="mb-3"><%= @cocktail.name %></h2>
 
                 <div class="row">
                   <%# Coctail Photo %>
@@ -87,7 +87,7 @@
                   <h3 class="mb-3">Reviews</h3>
                   <ul class="list-group">
                     <% @cocktail.reviews.each do |review| %>
-                      <li class="list-group-item"><strong>Rating:</strong>  <%= review.rating %> -- <strong>Comments:</strong> <%= review.content %></li>
+                      <li class="list-group-item"><strong>Rating:</strong>  <%= review.rating %> - <strong>Comments:</strong> <%= review.content %></li>
                     <% end %>
                   </ul>
                   </div>
