@@ -1,7 +1,17 @@
-<h1>Add a new cocktail</h1>
 
-<%= simple_form_for(@cocktail) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit "Create a cocktail", class: "btn btn-primary" %>
-<% end %>
+<div class="container">
+<div class="background-color-layer h-100" style="background-image: url('https://source.unsplash.com/7rjfWvO5tz0')"></div>
+    <div class="row h-100">
+        <div class="col-12 my-auto">
+            <div class="card card-block w-50 mx-auto text-center">
+              <h1>Create your cocktail!</h1>
+              <br>
+              <%= simple_form_for(@cocktail) do |f| %>
+                <%= f.input :name, label: 'Your Cocktail Name', input_html: { class: "cocktail-input-name" }, label_html: { class: 'cocktail-input-label' } %>
+                <%= f.input :photo, as: :file, label: 'Add your cocktail photo!', input_html: { class: "cocktail-photo" }, label_html: { class: 'cocktail-photo-label' } %>
+                <%= f.submit "Create a cocktail", class: "btn btn-danger" %>
+              <% end %>
+            </div>
+        </div>
+    </div>
+</div>
