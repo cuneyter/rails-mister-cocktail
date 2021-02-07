@@ -5,7 +5,7 @@
   background: -ms-linear-gradient(180deg, #19a6c3, #1de790);
   background: -o-linear-gradient(180deg, #19a6c3, #1de790);
   background: linear-gradient(180deg, #19a6c3, #1de790);
-  background-repeat:repeat-x;
+  background-repeat: repeat-x;
 ">
 </body>
 <%# End of body style %>
@@ -37,75 +37,64 @@
 </nav>
 <%# End of Navbar %>
 
-
-<div class="container">
-    <div class="row h-100">
-        <div class="col-sm-12 my-auto">
+<%# Start of coctail show %>
+<div class="container cocktail-show">
+    <div class="row">
+        <div class="col-sm-12 mt-5">
             <div class="card card-block w-75 mx-auto">
             <div class="card-body">
-                <h2 class="mb-5 text-white"><%= @cocktail.name %></h2>
+
+                <%# Cocktail Name %>
+                <h2 class="mb-3"><%= @cocktail.name %></h2>
+
                 <div class="row">
+                  <%# Coctail Image %>
                   <div class="col-md-4">
                     <p><%= cl_image_tag @cocktail.photo.key, height: 400, width: 300, crop: :fit, class: "rounded-3" %></p>
                   </div>
-                  <div class="col-md-8">
+
+                  <%# Cocktail Ingredients %>
+                  <div class="col-md-8 text-center">
                   <h3 class="mb-3">Ingredients</h3>
                     <ul class="list-group">
                     <% @cocktail.doses.each do |dose| %>
                       <li class="list-group-item"><%= dose.ingredient.name %> - <%= dose.description %>
-                      <%= link_to dose_path(dose), method: :delete, data: { confirm: "Are you sure you want to delete #{dose.description}?" } do %>
-                          <i class="bi bi-trash" aria-hidden="true"></i>
-                      <% end %>
+                        <%= link_to dose_path(dose), method: :delete, data: { confirm: "Are you sure you want to delete #{dose.description}?" } do %>
+                            <i class="bi bi-trash" aria-hidden="true"></i>
+                        <% end %>
                       </li>
                     <% end %>
-                  </ul>
+                    </ul>
                   <%= link_to 'Add Ingredient',  new_cocktail_dose_path(@cocktail), class: "btn btn-danger" %>
                   </div>
                 </div>
-              </div>
 
+                <%# Add A review card %>
+                <div class="row my-5">
+                  <div class="col-md-12">
+                  <h3 class="mb-3">Add a review for this cocktail</h3>
+                  <%= simple_form_for [ @cocktail, @review ] do |f| %>
+                    <%= f.input :content %>
+                    <%= f.input :rating, collection: (1..5)%>
+                    <%= f.submit "Submit review", class: "btn btn-danger" %>
+                  <% end %>
+                  </div>
+                </div>
+
+                <%# Reviews %>
+                <div class="row my-5">
+                  <div class="col-md-12">
+                  <h3 class="mb-3">Reviews</h3>
+                  <ul class="list-group">
+                    <% @cocktail.reviews.each do |review| %>
+                      <li class="list-group-item"><strong>Rating:</strong>  <%= review.rating %> - <strong>Comments:</strong> <%= review.content %></li>
+                    <% end %>
+                  </ul>
+                  </div>
+                </div>
+              </div>
             </div>
         </div>
     </div>
 </div>
-
-
-
-<h1>My cocktail</h1>
-
-<%= cl_image_tag @cocktail.photo.key, height: 400, width: 300, crop: :scale %>
-
-<h2><%= @cocktail.name %></h2>
-
-<ul class="list-group">
-  <% @cocktail.doses.each do |dose| %>
-    <li class="list-group-item"><strong>Dose:</strong>  <%= dose.description %> --- <strong>Ingredient:</strong>  <%= dose.ingredient.name %> ---
-    <%= link_to dose_path(dose), method: :delete, data: { confirm: "Are you sure you want to delete #{dose.description}?" } do %>
-        <i class="bi bi-trash" aria-hidden="true"></i>
-    <% end %>
-    </li>
-  <% end %>
-</ul>
-
-<%= link_to 'Back', cocktails_path, class: "btn btn-primary" %>
-<%= link_to 'Add a dose and ingredient',  new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
-
-<hr>
-
-<h1>Add a review</h1>
-
-<%= simple_form_for [ @cocktail, @review ] do |f| %>
-  <%= f.input :content %>
-  <%= f.input :rating, collection: (1..5)%>
-  <%= f.submit "Submit review", class: "btn btn-primary" %>
-<% end %>
-
-<hr>
-
-<h3>Reviews</h3>
-
-<ul class="list-group">
-  <% @cocktail.reviews.each do |review| %>
-    <li class="list-group-item"><strong>Rating:</strong>  <%= review.rating %> -- <strong>Comments:</strong> <%= review.content %></li>
-  <% end %>
-</ul>
+<%# End of coctail show %>
