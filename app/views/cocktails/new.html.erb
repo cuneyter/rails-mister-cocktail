@@ -9,7 +9,6 @@
               <%= simple_form_for(@cocktail) do |f| %>
                 <%= f.input :name, label: 'Your Cocktail Name', input_html: { class: "cocktail-input-name" }, label_html: { class: 'cocktail-input-label' } %>
                 <%= f.input :photo, as: :file, label: 'Add your cocktail photo!', input_html: { class: "cocktail-photo" }, label_html: { class: 'cocktail-photo-label' } %>
-                <%# <%= f.input :photo, as: :file %> %>
                 <%= f.submit "Create a cocktail", class: "btn btn-danger" %>
               <% end %>
             </div>
