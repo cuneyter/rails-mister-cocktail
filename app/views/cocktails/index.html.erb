@@ -48,7 +48,7 @@
     <% @cocktails.each do |cocktail| %>
     <div class="col-md-4">
     <%= link_to cocktail_path(cocktail) do %>
-        <div class="profile-card-2"><img src="<%= cl_image_path cocktail.photo.key %>" class="img img-responsive">
+        <div class="profile-card-2"><img src="<%= cl_image_path cocktail.photo.key %>" class="img-cover">
             <div class="profile-name"><%= cocktail.name %></div>
             <%# <div class="profile-username">Description : </div> %>
         </div>
