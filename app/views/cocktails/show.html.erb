@@ -37,6 +37,14 @@
 </nav>
 <%# End of Navbar %>
 
+<%# Start of Banner %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @cocktail.photo.key, height: 400, width: 800, crop: 'fill' %>);">
+  <div class="container text-center">
+    <h1><%= @cocktail.name %></h1>
+  </div>
+</div>
+<%# End of Banner %>
+
 <%# Start of coctail show %>
 <div class="container cocktail-show">
     <div class="row">
@@ -44,17 +52,10 @@
             <div class="card card-block w-75 mx-auto">
             <div class="card-body">
 
-                <%# Cocktail Name %>
-                <h2 class="mb-3"><%= @cocktail.name %></h2>
-
                 <div class="row ">
-                  <%# Coctail Image %>
-                  <div class="col-md-5">
-                    <img src="<%= cl_image_path @cocktail.photo.key %>" class="img-cover rounded-3">
-                  </div>
 
                   <%# Cocktail Ingredients %>
-                  <div class="col-md-7 text-center">
+                  <div class="col-md-12 text-center">
                   <h3 class="mb-3">Ingredients</h3>
                     <ul class="list-group">
                     <% @cocktail.doses.each do |dose| %>
