@@ -55,7 +55,7 @@
                 <div class="row ">
 
                   <%# Cocktail Ingredients %>
-                  <div class="col-md-12 text-center">
+                  <div class="col-sm-12 text-center">
                   <h3 class="mb-3">Ingredients</h3>
                     <ul class="list-group">
                     <% @cocktail.doses.each do |dose| %>
@@ -72,7 +72,7 @@
 
                 <%# Add A review card %>
                 <div class="row my-5">
-                  <div class="col-md-12">
+                  <div class="col-sm-12">
                   <h3 class="mb-3">Add a review for this cocktail</h3>
                   <%= simple_form_for [ @cocktail, @review ] do |f| %>
                     <%= f.input :content %>
@@ -84,7 +84,7 @@
 
                 <%# Reviews %>
                 <div class="row my-5">
-                  <div class="col-md-12">
+                  <div class="col-sm-12">
                   <h3 class="mb-3">Reviews</h3>
                   <ul class="list-group">
                     <% @cocktail.reviews.each do |review| %>
