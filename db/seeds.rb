@@ -32,13 +32,13 @@ puts 'Cleaning up cocktails database'
 Cocktail.destroy_all
 puts 'Cocktails database is clean'
 
-cocktail_names = ['Daiquiri', 'Piña Colada', 'Mai Tai', 'Caipirinha', 'Old Fashioned', 'Manhattan', 'Margarita', 'Cosmopolitan', 'Mojito', 'Martini']
+# cocktail_names = ['Daiquiri', 'Piña Colada', 'Mai Tai', 'Caipirinha', 'Old Fashioned', 'Manhattan', 'Margarita', 'Cosmopolitan', 'Mojito', 'Martini']
 
-cocktail_names.each do |cocktail|
-  cocktail = Cocktail.create(
-    name: cocktail
-  )
-  puts "Cocktail #{cocktail.name} is created"
-end
+# cocktail_names.each do |cocktail|
+#   cocktail = Cocktail.create(
+#     name: cocktail
+#   )
+#   puts "Cocktail #{cocktail.name} is created"
+# end
 
 puts 'Cocktails database Done!!!'
