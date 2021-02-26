@@ -54,8 +54,19 @@
 
                 <div class="row ">
 
-                  <%# Cocktail Ingredients %>
-                  <div class="col-sm-12 text-center">
+                  <%# Create Cocktail Ingredients %>
+                  <div class="col-sm-4">
+                  <h3 class="mb-3">Add an Ingredient</h3>
+                  <%# <%= link_to 'Add Ingredient',  new_cocktail_dose_path(@cocktail), class: "btn btn-danger" %>
+                    <%= simple_form_for [ @cocktail, @dose ] do |f| %>
+                      <%= f.input :description %>
+                      <%= f.association :ingredient  %>
+                      <%= f.submit "Submit", class: "btn btn-primary" %>
+                    <% end %>
+                  </div>
+
+                  <%# Display Cocktail Ingredients %>
+                  <div class="col-sm-8 text-center">
                   <h3 class="mb-3">Ingredients</h3>
                     <ul class="list-group">
                     <% @cocktail.doses.each do |dose| %>
@@ -66,7 +77,6 @@
                       </li>
                     <% end %>
                     </ul>
-                  <%= link_to 'Add Ingredient',  new_cocktail_dose_path(@cocktail), class: "btn btn-danger" %>
                   </div>
                 </div>
 
