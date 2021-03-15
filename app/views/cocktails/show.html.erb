@@ -10,33 +10,6 @@
 </body> %>
 <%# End of body style %>
 
-<%# Start of Navbar %>
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
-  <div class="container">
-    <a class="navbar-brand" href="/cocktails">The Cocktail House</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <div class="mx-auto"></div>
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link text-white" href="/cocktails/new">Create your Cocktail!</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<%# End of Navbar %>
-
 <%# Start of Banner %>
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @cocktail.photo.key, height: 400, width: 800, crop: 'fill' %>);">
   <div class="container text-center">
@@ -45,7 +18,7 @@
 </div>
 <%# End of Banner %>
 
-<%# Start of coctail show %>
+<%# Start of cocktail show %>
 <div class="container cocktail-show">
     <div class="row">
         <div class="col-sm-12 mt-5">
@@ -108,7 +81,7 @@
         </div>
     </div>
 </div>
-<%# End of coctail show %>
+<%# End of cocktail show %>
 
 <%# Start of Footer Render %>
 

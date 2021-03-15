@@ -1,3 +1,40 @@
+<div class="navbar navbar-expand-sm navbar-light fixed-top navbar-cocktail bg-transparent">
+  <%= link_to cocktails_path, class: "navbar-brand" do %>
+    <h3 class="text-white">The Cocktail House</h3>
+  <% end %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "My Cocktails", "#", class: "nav-link text-white" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Create a new Cocktail!", new_cocktail_path, class: "nav-link text-white" %>
+        </li>
+        <li class="nav-item dropdown">
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/cuneyter", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "My Account", "#", class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Login", new_user_session_path, class: "nav-link text-white" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<%
+=begin
+%>
 <div class="navbar fixed-top navbar-expand-sm navbar-light navbar-cocktail bg-transparent">
   <%= link_to cocktails_path, class: "navbar-brand" do %>
     <h3 class="text-white">The Cocktail House</h3>
@@ -23,43 +60,6 @@
           <%= link_to "Log out!", "#", class: "dropdown-item text-white" %>
         </div>
       </li>
-    </ul>
-  </div>
-</div>
-
-<%
-=begin
-%>
-<div class="navbar navbar-expand-sm navbar-light fixed-top navbar-cocktail bg-transparent">
-  <%= link_to cocktails_path, class: "navbar-brand" do %>
-    <h3 class="text-white">The Cocktail House</h3>
-  <% end %>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to "My Cocktails", "#", class: "nav-link text-white" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Create a new Cocktail!", new_cocktail_path, class: "nav-link text-white" %>
-        </li>
-        <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/cuneyter", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "My Account", "#", class: "dropdown-item text-white" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item text-white" %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
     </ul>
   </div>
 </div>
