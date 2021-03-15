@@ -1,6 +1,6 @@
-<div class="navbar navbar-expand-sm navbar-light fixed-top navbar-cocktail bg-transparent">
+<div class="navbar navbar-expand-sm navbar-dark fixed-top navbar-cocktail bg-transparent mx-3">
   <%= link_to cocktails_path, class: "navbar-brand" do %>
-    <h3 class="text-white">The Cocktail House</h3>
+    <h5 class="text-white">The Cocktail House</h5>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,7 +14,7 @@
           <%= link_to "My Cocktails", "#", class: "nav-link text-white" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Create a new Cocktail!", new_cocktail_path, class: "nav-link text-white" %>
+          <%= link_to "Create a new Cocktail!", new_cocktail_path, class: "nav-link text-white mx-3" %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/cuneyter", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
