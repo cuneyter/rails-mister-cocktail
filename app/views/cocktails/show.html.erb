@@ -29,7 +29,7 @@
 
                   <%# Create Cocktail Ingredients %>
                   <div class="col-sm-4">
-                  <h3 class="mb-3">Add an Ingredient</h3>
+                  <h3 class="my-3">Add an Ingredient</h3>
                   <%# <%= link_to 'Add Ingredient',  new_cocktail_dose_path(@cocktail), class: "btn btn-danger" %>
                     <%= simple_form_for [ @cocktail, @dose ] do |f| %>
                       <%= f.input :description %>
@@ -40,7 +40,7 @@
 
                   <%# Display Cocktail Ingredients %>
                   <div class="col-sm-6">
-                  <h3 class="mb-3">Ingredients</h3>
+                  <h3 class="my-3">Ingredients</h3>
                     <ul class="list-group list-group-flush">
                       <% @cocktail.doses.each do |dose| %>
                         <div class="px-0 list-group-item d-flex align-items-center">
