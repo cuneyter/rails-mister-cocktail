@@ -74,23 +74,46 @@
                 <div class="row my-5">
                   <div class="col-sm-12">
                   <h3 class="mb-3">Reviews</h3>
-                  <ul class="list-group">
-                    <% @cocktail.reviews.each do |review| %>
-                      <div class="px-0 list-group-item d-flex align-items-center">
-                        <div>
-                          <%= image_tag "avatar_placeholder.png", class: "avatar", alt: "avatar" %>
-                        </div>
-                        <div>
-                          <div>
-                          </div>
-                          <div>
-                          </div>
-                        </div>
+                    <% if @cocktail.reviews.empty? %>
+                      <p>Be the first to let a review!</p>
+                    <% else %>
+                      <ul class="list-group list-group-flush">
+                        <% @cocktail.reviews.each do |review| %>
+                          <div class="px-0 list-group-item">
 
-                      </div>
-                      <li class="list-group-item"><strong>Rating:</strong>  <%= review.rating %> - <strong>Comments:</strong> <%= review.content %></li>
+                            <%# User avatar, user name and time of the review %>
+                            <div class="d-flex align-items-center mb-1">
+                              <div>
+                                <%= image_tag "avatar_placeholder.png", class: "avatar-large", alt: "avatar-large" %>
+                              </div>
+                              <div class="ml-3">
+                                <div>
+                                  <%= review.user.first_name %>
+                                </div>
+                                <div>
+                                  <%= Time.at(review.created_at).strftime("%B %Y") %>
+                                </div>
+                              </div>
+                            </div>
+
+                            <%# Rating %>
+                            <div class="mb-1">
+                              <% review.rating.times do %>
+                                <i class="fas fa-star checked"></i>
+                              <% end %>
+                              <% (5 - review.rating).times do %>
+                                <i class="fas fa-star"></i>
+                              <% end %>
+                            </div>
+
+                            <%# Review %>
+                            <div>
+                              <%= review.content %>
+                            </div>
+                          </div>
+                        <% end %>
+                      </ul>
                     <% end %>
-                  </ul>
                   </div>
                 </div>
               </div>
