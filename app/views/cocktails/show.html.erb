@@ -74,16 +74,18 @@
                 <div class="row my-5">
                   <div class="col-sm-12">
                   <h3 class="mb-3">Reviews</h3>
-                  <ul class="list-group">
+                  <ul class="list-group list-group-flush">
                     <% @cocktail.reviews.each do |review| %>
                       <div class="px-0 list-group-item d-flex align-items-center">
                         <div>
-                          <%= image_tag "avatar_placeholder.png", class: "avatar", alt: "avatar" %>
+                          <%= image_tag "avatar_placeholder.png", class: "avatar-large", alt: "avatar-large" %>
                         </div>
-                        <div>
+                        <div class="ml-3">
                           <div>
+                            <%= review.user.first_name %>
                           </div>
                           <div>
+                            <%= Time.at(review.created_at).strftime("%d of %B, %Y") %>
                           </div>
                         </div>
 
