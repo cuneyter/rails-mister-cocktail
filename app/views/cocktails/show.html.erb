@@ -93,14 +93,19 @@
                           </div>
                         </div>
 
-                        <%# Review and Rating %>
-                        <div>
+                        <%# Rating %>
+                        <div class="mb-1">
                           <% review.rating.times do %>
+                            <i class="fas fa-star checked"></i>
+                          <% end %>
+                          <% (5 - review.rating).times do %>
                             <i class="fas fa-star"></i>
                           <% end %>
                         </div>
+
+                        <%# Review %>
                         <div>
-                          <strong>Comments:</strong> <%= review.content %>
+                          <%= review.content %>
                         </div>
                       </div>
                     <% end %>
