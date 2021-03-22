@@ -76,21 +76,33 @@
                   <h3 class="mb-3">Reviews</h3>
                   <ul class="list-group list-group-flush">
                     <% @cocktail.reviews.each do |review| %>
-                      <div class="px-0 list-group-item d-flex align-items-center">
-                        <div>
-                          <%= image_tag "avatar_placeholder.png", class: "avatar-large", alt: "avatar-large" %>
-                        </div>
-                        <div class="ml-3">
+                      <div class="px-0 list-group-item">
+
+                        <%# User avatar, user name and time of the review %>
+                        <div class="d-flex align-items-center mb-1">
                           <div>
-                            <%= review.user.first_name %>
+                            <%= image_tag "avatar_placeholder.png", class: "avatar-large", alt: "avatar-large" %>
                           </div>
-                          <div>
-                            <%= Time.at(review.created_at).strftime("%d of %B, %Y") %>
+                          <div class="ml-3">
+                            <div>
+                              <%= review.user.first_name %>
+                            </div>
+                            <div>
+                              <%= Time.at(review.created_at).strftime("%B %Y") %>
+                            </div>
                           </div>
                         </div>
 
+                        <%# Review and Rating %>
+                        <div>
+                          <% review.rating.times do %>
+                            <i class="fas fa-star"></i>
+                          <% end %>
+                        </div>
+                        <div>
+                          <strong>Comments:</strong> <%= review.content %>
+                        </div>
                       </div>
-                      <li class="list-group-item"><strong>Rating:</strong>  <%= review.rating %> - <strong>Comments:</strong> <%= review.content %></li>
                     <% end %>
                   </ul>
                   </div>
