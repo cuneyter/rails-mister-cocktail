@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+THE COCKTAIL HOUSE
 
-Things you may want to cover:
+This cocktail app was the front-end challenge as part of my bootcamp.
 
-* Ruby version
+I have decided to take it further so I can store my favorite cocktails and share with other people.
 
-* System dependencies
+I have coded the backend futures (all CRUD actions) so anybody can create a cocktail, see all cocktails and add reviews.
 
-* Configuration
+I have also added the authentication with devise gem in order to control the access what is being added.
 
-* Database creation
+Finally, I have uploaded this cocktail app to Heroku so everybody can enjoy the amazing cocktails.
 
-* Database initialization
+There are more to come.
 
-* How to run the test suite
+I will keep you updated :)
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Cuneyt
